@@ -12,7 +12,7 @@ This document describes how to use `clusterctl` during the development workflow.
 
 From the root of the local copy of Cluster API, you can build the `clusterctl` binary by running:
 
-```shell
+```bash
 make clusterctl
 ```
 
@@ -67,7 +67,7 @@ a `clusterctl-settings.json` file describing how to build the provider assets.
 
 Run the create-local-repository hack from the root of the local copy of Cluster API:
 
-```shell
+```bash
 cmd/clusterctl/hack/create-local-repository.py
 ```
 
@@ -76,7 +76,7 @@ and places them in a local repository folder located under `$HOME/.cluster-api/d
 Additionally, the command output provides you the `clusterctl init` command with all the necessary flags.
 The output should be similar to:
 
-```shell
+```bash
 clusterctl local overrides generated from local repositories for the cluster-api, bootstrap-kubeadm, control-plane-kubeadm, infrastructure-docker, infrastructure-aws providers.
 in order to use them, please run:
 

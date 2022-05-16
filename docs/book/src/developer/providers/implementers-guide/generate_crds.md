@@ -10,6 +10,8 @@ You'll then need to set up [go modules][gomod]
 
 ```bash
 $ go mod init github.com/liztio/cluster-api-provider-mailgun
+```
+```
 go: creating new go.mod: module github.com/liztio/cluster-api-provider-mailgun
 ```
 [gomod]: https://github.com/golang/go/wiki/Modules#how-to-define-a-module
@@ -71,7 +73,7 @@ type MailgunMachine struct {
 ```
 
 And regenerate the CRDs:
-```shell
+```bash
 make manifests
 ```
 

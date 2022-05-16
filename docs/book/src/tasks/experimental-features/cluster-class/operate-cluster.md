@@ -17,7 +17,8 @@ Let's assume we have created a CAPD cluster with ClusterClass and specified Kube
 
 ```bash
 > kubectl get kubeadmcontrolplane,machinedeployments
-
+```
+```
 NAME                                                                              CLUSTER                   INITIALIZED   API SERVER AVAILABLE   REPLICAS   READY   UPDATED   UNAVAILABLE   AGE     VERSION
 kubeadmcontrolplane.controlplane.cluster.x-k8s.io/clusterclass-quickstart-XXXX    clusterclass-quickstart   true          true                   1          1       1         0             2m21s   v1.21.2
 
@@ -54,7 +55,7 @@ watch kubectl get kubeadmcontrolplane,machinedeployments
 
 After a few minutes the upgrade will be complete and the output will be similar to:
 
-```bash
+```
 NAME                                                                              CLUSTER                   INITIALIZED   API SERVER AVAILABLE   REPLICAS   READY   UPDATED   UNAVAILABLE   AGE     VERSION
 kubeadmcontrolplane.controlplane.cluster.x-k8s.io/clusterclass-quickstart-XXXX    clusterclass-quickstart   true          true                   1          1       1         0             7m29s   v1.22.0
 
@@ -70,7 +71,7 @@ Assume we have created a CAPD cluster with ClusterClass and Kubernetes v1.23.3 (
 kubectl get machinedeployments
 ```
 Will give us:
-```bash 
+```
 NAME                                                            CLUSTER           REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE     AGE   VERSION
 machinedeployment.cluster.x-k8s.io/capi-quickstart-md-0-XXXX   capi-quickstart   3          3       3         0             Running   21m   v1.23.3
 ```
@@ -112,7 +113,7 @@ kubectl get machinedeployments
 ```
 
 Will give us:
-```bash
+```
 NAME                                                            CLUSTER           REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE     AGE   VERSION
 machinedeployment.cluster.x-k8s.io/capi-quickstart-md-0-XXXX   capi-quickstart   3          3       3         0             Running   21m   v1.23.3
 ```
@@ -139,7 +140,7 @@ This patch will make the below changes on the Cluster yaml:
 ```
 
 After a minute to scale the new MachineDeployment we get:
-```bash
+```
 NAME                                      CLUSTER           REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE     AGE   VERSION
 capi-quickstart-md-0-XXXX                 capi-quickstart   1          1       1         0             Running   39m   v1.23.3
 capi-quickstart-second-deployment-XXXX    capi-quickstart   1          1       1         0             Running   99s   v1.23.3

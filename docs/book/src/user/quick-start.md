@@ -65,7 +65,7 @@ a target [management cluster] on the selected [infrastructure provider].
    kind create cluster
    ```
    Test to ensure the local kind cluster is ready:
-   ```
+   ```bash
    kubectl cluster-info
    ```
 
@@ -384,7 +384,7 @@ project][vSphere getting started guide].
 
 The output of `clusterctl init` is similar to this:
 
-```shell
+```
 Fetching providers
 Installing cert-manager Version="v1.7.2"
 Waiting for cert-manager to be available...
@@ -770,7 +770,7 @@ kubectl apply -f capi-quickstart.yaml
 
 The output is similar to this:
 
-```bash
+```
 cluster.cluster.x-k8s.io/capi-quickstart created
 dockercluster.infrastructure.cluster.x-k8s.io/capi-quickstart created
 kubeadmcontrolplane.controlplane.cluster.x-k8s.io/capi-quickstart-control-plane created
@@ -802,7 +802,7 @@ kubectl get kubeadmcontrolplane
 
 You should see an output is similar to this:
 
-```bash
+```
 NAME                            INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
 capi-quickstart-control-plane   true                                 v1.23.3   3                  3         3
 ```

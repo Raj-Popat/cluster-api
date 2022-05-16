@@ -118,14 +118,20 @@ make -C test/infrastructure/docker docker-build
 
 ### Push both images
 
-```shell
+```bash
 $ make docker-push
+```
+```
 docker push gcr.io/cluster-api-242700/cluster-api-controller-amd64:dev
 The push refers to repository [gcr.io/cluster-api-242700/cluster-api-controller-amd64]
 90a39583ad5f: Layer already exists
 932da5156413: Layer already exists
 dev: digest: sha256:263262cfbabd3d1add68172a5a1d141f6481a2bc443672ce80778dc122ee6234 size: 739
+```
+```bash
 $ make -C test/infrastructure/docker docker-push
+```
+```
 make: Entering directory '/home/liz/src/sigs.k8s.io/cluster-api/test/infrastructure/docker'
 docker push gcr.io/cluster-api-242700/manager:dev
 The push refers to repository [gcr.io/cluster-api-242700/manager]
@@ -167,8 +173,10 @@ spec:
 ```
 
 ### Apply the manifests
-```shell
+```bash
 $ kustomize build config/ | ./hack/tools/bin/envsubst | kubectl apply -f -
+```
+```
 namespace/capi-system configured
 customresourcedefinition.apiextensions.k8s.io/clusters.cluster.x-k8s.io configured
 customresourcedefinition.apiextensions.k8s.io/kubeadmconfigs.bootstrap.cluster.x-k8s.io configured
@@ -181,8 +189,11 @@ clusterrole.rbac.authorization.k8s.io/capi-manager-role configured
 rolebinding.rbac.authorization.k8s.io/capi-leader-election-rolebinding configured
 clusterrolebinding.rbac.authorization.k8s.io/capi-manager-rolebinding configured
 deployment.apps/capi-controller-manager created
-
+```
+```bash
 $ kustomize build test/infrastructure/docker/config | ./hack/tools/bin/envsubst | kubectl apply -f -
+```
+```
 namespace/capd-system configured
 customresourcedefinition.apiextensions.k8s.io/dockerclusters.infrastructure.cluster.x-k8s.io configured
 customresourcedefinition.apiextensions.k8s.io/dockermachines.infrastructure.cluster.x-k8s.io configured
@@ -199,8 +210,10 @@ deployment.apps/capd-controller-manager created
 
 ### Check the status of the clusters
 
-```shell
+```bash
 $ kubectl get po -n capd-system
+```
+```
 NAME                                       READY   STATUS    RESTARTS   AGE
 capd-controller-manager-7568c55d65-ndpts   2/2     Running   0          71s
 $ kubectl get po -n capi-system

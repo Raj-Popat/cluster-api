@@ -9,7 +9,7 @@ depending on the use case you are going to plan for (see more details below).
 The topology plan output would provide details about objects that will be created, updated and deleted of a target cluster; 
 If instead the command detects that the change impacts many Clusters, the users will be required to select one to focus on (see flags below).
 
-```shell
+```bash
 clusterctl alpha topology plan -f input.yaml -o output/
 ```
 
@@ -29,7 +29,7 @@ the input should have all the objects needed.
 When designing a new ClusterClass users might want to preview the Cluster generated using such ClusterClass. 
 The `clusterctl alpha topology plan command` can be used to do so:
 
-```shell
+```bash
 clusterctl alpha topology plan -f example-cluster-class.yaml -f example-cluster.yaml -o output/
 ```
 
@@ -188,7 +188,7 @@ spec:
 </details>
 
 Produces an output similar to this:
-```shell
+```bash
 The following ClusterClasses will be affected by the changes:
  ＊ default/example-cluster-class
 
@@ -233,7 +233,7 @@ output
 
 When making changes to a Cluster topology the `clusterctl alpha topology plan` can be used to analyse how the underlying objects will be affected.
 
-```shell
+```bash
 clusterctl alpha topology plan -f modified-example-cluster.yaml -o output/
 ```
 
@@ -276,7 +276,7 @@ spec:
 </details>
 
 Produces an output similar to this:
-```shell
+```bash
 Detected a cluster with Cluster API installed. Will use it to fetch missing objects.
 No ClusterClasses will be affected by the changes.
 The following Clusters will be affected by the changes:
@@ -296,7 +296,7 @@ Modified objects are written to directory "output/modified"
 The command can be used to plan if a Cluster can be successfully rebased to a different ClusterClass.
 
 Rebasing a Cluster to a different ClusterClass:
-```shell
+```bash
 # Rebasing from `example-cluster-class` to `another-cluster-class`.
 clusterctl alpha topology plan -f rebase-example-cluster.yaml -o output/
 ```
@@ -336,7 +336,7 @@ spec:
 </details>
 
 If the target ClusterClass is compatible with the original ClusterClass the output be similar to:
-```shell
+```bash
 Detected a cluster with Cluster API installed. Will use it to fetch missing objects.
 No ClusterClasses will be affected by the changes.
 The following Clusters will be affected by the changes:
@@ -355,7 +355,7 @@ Modified objects are written to directory "output/modified"
 ```
 
 Instead, if the command detects that the rebase operation would lead to a non-functional cluster (ClusterClasses are incompatible), the output will be similar to:
-```shell
+```bash
 Detected a cluster with Cluster API installed. Will use it to fetch missing objects.
 Error: failed defaulting and validation on input objects: failed to run defaulting and validation on Clusters: failed validation of cluster.x-k8s.io/v1beta1, Kind=Cluster default/example-cluster: Cluster.cluster.x-k8s.io "example-cluster" is invalid: spec.topology.workers.machineDeployments[0].class: Invalid value: "default-worker": MachineDeploymentClass with name "default-worker" does not exist in ClusterClass "another-cluster-class"
 ```
@@ -365,11 +365,11 @@ In this example rebasing will lead to a non-functional Cluster because the Clust
 
 When planning for a change on a ClusterClass you might want to understand what effects the change will have on existing clusters.
 
-```shell
+```bash
 clusterctl alpha topology plan -f modified-first-cluster-class.yaml -o output/
 ```
 When multiple clusters are affected, only the list of Clusters and ClusterClasses is presented.
-```shell
+```bash
 Detected a cluster with Cluster API installed. Will use it to fetch missing objects.
 The following ClusterClasses will be affected by the changes:
  ＊ default/first-cluster-class
@@ -382,7 +382,7 @@ No target cluster identified. Use --cluster to specify a target cluster to get d
 ```
 
 To get the full list of changes for the "first-cluster":
-```shell
+```bash
 clusterctl alpha topology plan -f modified-first-cluster-class.yaml -o output/ -c "first-cluster"
 ```
 Output will be similar to the full summary output provided in other examples.

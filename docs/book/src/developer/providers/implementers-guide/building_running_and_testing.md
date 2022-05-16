@@ -39,7 +39,7 @@ kustomize build config/ | kubectl apply -f-
 
 Check the status of the manager to make sure it's running properly
 
-```shell
+```bash
 $ kubectl describe -n capi-system pod | grep -A 5 Conditions
 Conditions:
   Type              Status

@@ -119,7 +119,7 @@ An Azure Service Principal is needed for populating the controller manifests. Th
 
 Add the output of the following as a section in your `tilt-settings.yaml`:
 
-  ```shell
+  ```bash
   cat <<EOF
   kustomize_substitutions:
      AZURE_SUBSCRIPTION_ID_B64: "$(echo "${AZURE_SUBSCRIPTION_ID}" | tr -d '\n' | base64 | tr -d '\n')"

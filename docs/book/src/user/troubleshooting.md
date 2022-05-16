@@ -97,7 +97,8 @@ When using older versions of Cluster API 0.4 and 1.0 releases - 0.4.6, 1.0.3 and
 
 ```bash
 $ cluster-api % clusterctl init --infrastructure docker
-
+```
+```
 Fetching providers
 Installing cert-manager Version="v1.7.2"
 Error: action failed after 10 attempts: failed to get cert-manager object /, Kind=, /: Object 'Kind' is missing in 'unstructured object has no kind'
@@ -131,7 +132,7 @@ invalid argument "ClusterTopology=false,KubeadmBootstrapFormatIgnition=false" fo
 In order to solve this problem you should specify the version of the provider you are installing by appending a
 version tag to the provider name:
 
-```shell
+```bash
 clusterctl init -b kubeadm:v1.0.2 -c kubeadm:v1.0.2 --core cluster-api:v1.0.2 -i docker:v1.0.2
 ```
 

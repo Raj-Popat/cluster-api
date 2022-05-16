@@ -134,14 +134,14 @@ Behind the scenes clusterctl will apply labels to any and all providers’ compo
 
 The clusterctl CLI is optimized for the “day one” experience of using Cluster API, and it will be possible to create a first cluster with two commands after the pre-requisites are met:
 
-```shell
+```bash
 $ clusterctl init --infrastructure aws
 $ clusterctl config cluster my-first-cluster | kubectl apply -f -
 ```
 
 Then, as of today, the CNI of choice should be applied to the new cluster:
 
-```shell
+```bash
 $ kubectl get secret my-first-cluster-kubeconfig -o=jsonpath='{.data.value}' | base64 -D > my-first-cluster.kubeconfig
 $ kubectl apply --kubeconfig=my-first-cluster.kubeconfig -f MY_CNI
 ```
